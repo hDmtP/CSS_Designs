@@ -1,7 +1,20 @@
 ## Oh Hello 👋 ya!
-You can use the [editor on GitHub](https://github.com/hDmtP/CSS_Designs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+You can use the [editor on GitHub](https://github.com/hDmtP/CSS_Designs/edit/gh-pages/index.md) to maintain and preview the content for this website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+
+1. [Checkbox1](https://hdmtp.github.io/CSS_Designs/checkbox1/)
+
+
+
+2. [Glowing Apple Logo](https://hdmtp.github.io/CSS_Designs/glowing_apple_logo/)
+
+
+
+3. [Sliding Login Template](https://hdmtp.github.io/CSS_Designs/login_template/)
+
+
+
 
 
 
