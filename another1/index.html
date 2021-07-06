@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,221 +5,193 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Designs</title>
+    <title>Navigation Menu</title>
     <link rel="shortcut icon" href="favicon1.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #232c33;
+        }
+
+        .navigation {
+            position: relative;
+            height: 500px;
+            width: 70px;
+            background: #2b343b;
+            box-shadow: 10px 0 0 #4187f6;
+            border-left: 10px solid #2b343b;
+            overflow-x: hidden;
+            transition: width 0.5s;
+        }
+
+        .navigation:hover {
+            width: 300px;
+        }
+
+        .navigation ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-left: 5px;
+            padding-top: 40px;
+        }
+
+        .navigation ul li {
+            position: relative;
+            list-style: none;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .navigation ul li.active {
+            background: #4187f6;
+        }
+
+        .navigation ul li.active a::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: #2b343b;
+            border-radius: 50%;
+            box-shadow: 15px 15px 0 #4187f6;
+        }
+
+        .navigation ul li.active a::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: #2b343b;
+            border-radius: 50%;
+            box-shadow: 15px -15px 0 #4187f6;
+        }
+
+        .navigation ul li a {
+            position: relative;
+            display: block;
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .navigation ul li a .icon {
+            position: relative;
+            display: block;
+            min-width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .navigation ul li a .icon ion-icon {
+            position: relative;
+            font-size: 1.5em;
+        }
+
+        .navigation ul li a .title {
+            position: relative;
+            display: block;
+            padding-left: 10px;
+            height: 60px;
+            line-height: 50px;
+            white-space: nowrap;
+        }
+    </style>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: #154367;
-        overflow: hidden;
-    }
-
-    .navigation {
-        position: relative;
-        height: 50px;
-        width: 50px;
-        background: #fff;
-        transition: width 0.5s, height 0.5s;
-        transition-delay: 0s, 0.75s;
-        z-index: 100000;
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    .navigation.active {
-        width: 250px;
-        height: 350px;
-        transition: height 0.5s, width 0.5s;
-        transition-delay: 0s, 0.75s;
-    }
-
-    .navigation .toggle {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        background: #ff4081;
-        transition: 0.5s;
-        cursor: pointer;
-    }
-
-    .navigation .toggle.active {
-        background: #2196f3;
-    }
-
-    .navigation .toggle::before {
-        content: '+';
-        position: absolute;
-        font-size: 2em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        color: #fff;
-        font-weight: 400;
-        transition: 0.5s;
-    }
-
-    .navigation .toggle.active::before {
-        transform: rotate(315deg);
-    }
-
-    .navigation ul {
-        position: relative;
-        left: 0;
-        width: 100%;
-    }
-
-    .navigation ul li {
-        position: relative;
-        list-style: none;
-        width: 100%;
-    }
-
-    .navigation ul li:hover {
-        background: #03a9f4;
-    }
-
-    .navigation ul li a {
-        position: relative;
-        display: block;
-        width: 100%;
-        display: flex;
-        text-decoration: none;
-        color: #154367;
-    }
-
-    .navigation ul li a .icon {
-        position: relative;
-        display: block;
-        min-width: 50px;
-        height: 37.5px;        /*SAME*/
-        text-align: center;
-        line-height: 50px;
-    }
-
-    .navigation ul li a .icon .fa {
-        font-size: 24px;
-        color: #154367;
-    }
-
-    .navigation ul li a .title {
-        position: relative;
-        display: block;
-        padding: 0 10px;
-        line-height: 37.5px;   /*SAME*/
-        text-align: start;
-        white-space: nowrap;
-    }
-
-    .navigation ul li:hover a .icon .fa,
-    .navigation ul li:hover a .title {
-        color: #fff;
-    }
-</style>
 
 <body>
     <div class="navigation">
-        <div class="toggle"></div>
         <ul>
-            <li>
-                <a href="https://hdmtp.github.io/CSS_Designs/Loading/">
-                    <span class="icon"><i class="fa fa-spinner" aria-hidden="true"></i></span>
-                    <span class="title">Loading...</span>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Home</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://hdmtp.github.io/CSS_Designs/checkbox1/">
-                    <span class="icon"><i class="fa fa-check-square" aria-hidden="true"></i></span>
-                    <span class="title">Checkbox1</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <span class="title">Profile</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://hdmtp.github.io/CSS_Designs/glowing_apple_logo/">
-                    <span class="icon"><i class="fa fa-apple" aria-hidden="true"></i></span>
-                    <span class="title">Apple</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="mail-unread-outline"></ion-icon>
+                    </span>
+                    <span class="title">Messages</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://hdmtp.github.io/CSS_Designs/login_template/">
-                    <span class="icon"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                    <span class="title">Login Page</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </span>
+                    <span class="title">Settings</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://hdmtp.github.io/CSS_Designs/email_check">
-                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <span class="title">Email Validation</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                    </span>
+                    <span class="title">Help</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://youtu.be/sI2Oe7EkKMI" , target="_blank">
-                    <span class="icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
-                    <span class="title">Tutorial</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="key-outline"></ion-icon>
+                    </span>
+                    <span class="title">Password</span>
                 </a>
             </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://github.com/hDmtP/CSS_Designs" , target="_blank">
-                    <span class="icon"><i class="fa fa-code-fork" aria-hidden="true"></i></span>
-                    <span class="title">Source Code</span>
-                </a>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="https://github.com/hDmtP/CSS_Designs" , target="_blank">
-                    <span class="icon"><i class="fa fa-code-fork" aria-hidden="true"></i></span>
-                    <span class="title">Source Code</span>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <span class="title">Sign Out</span>
                 </a>
             </li>
         </ul>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
     <script>
-        const navigation = document.querySelector('.navigation');
-        document.querySelector('.toggle').ondblclick = function () {
-            this.classList.toggle('active');
-            navigation.classList.toggle('active');
+        const list = document.querySelectorAll('.list');
+        function activeLink(){
+            list.forEach((item) =>
+            item.classList.remove('active'));
+            this.classList.add('active');
         }
-    </script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $(".navigation").draggable();
-        });
+        list.forEach((item) =>
+        item.addEventListener('mouseover', activeLink));
     </script>
 </body>
 
