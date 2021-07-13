@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti Falling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <h2>!!Congratulations!!</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis voluptate quaerat autem quisquam
+            corporis fugiat vitae, ullam a sint unde quo recusandae iusto similique vel beatae error maiores ducimus
+            molestias illum deleniti sit soluta doloremque in? Ipsum, harum nihil fuga est optio praesentium! Reiciendis
+            nostrum necessitatibus quisquam, modi unde esse asperiores neque, eveniet praesentium itaque earum. Culpa
+            repudiandae quibusdam vel earum quae, modi recusandae voluptas sapiente dignissimos incidunt possimus
+            deleniti explicabo optio impedit cum, omnis rerum asperiores et numquam! Natus minus reiciendis ab veniam
+            earum quas voluptate commodi tenetur, sapiente impedit repellat numquam porro ullam consequatur molestiae
+            unde excepturi id optio nihil eos! Reprehenderit rem explicabo soluta corporis tenetur veritatis quidem sunt
+            optio suscipit nam rerum mollitia itaque harum, commodi earum! Numquam debitis consequuntur, quia tempora
+            labore iusto incidunt illo provident! Repudiandae ut fuga molestias aut. Inventore aspernatur, animi ex
+            blanditiis fugit fuga, impedit eum asperiores corporis quaerat quidem. Commodi ratione omnis ut corporis
+            alias totam cumque amet. Totam modi, voluptate ab et incidunt repellendus quo velit mollitia vitae deserunt
+            exercitationem, ut rerum cumque, minima nam obcaecati? Iste inventore qui corrupti accusantium. Officia
+            laborum, ipsa necessitatibus earum iste itaque rem error nisi quis quaerat, deleniti hic quam asperiores
+            odio optio.</p>
+        <button class="btn">Click Here</button>
+        <div class="popup">
+            <h2>Oh Boy! you did it..</h2>
+            <b class="close">x</b>
+        </div>
+    </section>
+
+    <canvas id="my-canvas"></canvas>
+
+
+    <script src="index.min.js"></script>
+    <script>
+        let btn = document.querySelector('.btn');
+        let popup = document.querySelector('.popup');
+        let close = document.querySelector('.close');
+        let confett = document.querySelector('#my-canvas');
+        //we can't name it confetti due to some obvious reasons
+        btn.onclick = function () {
+            popup.classList.add('active');
+            confett.classList.add('active');
+        }
+        close.onclick = function () {
+            popup.classList.remove('active');
+            confett.classList.remove('active');
+        }
+
+        var confettiElement = document.getElementById('my-canvas');
+        var confettiSettings = { target: confettiElement };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+
+    </script>
+</body>
+
+</html>
