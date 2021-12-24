@@ -21,6 +21,12 @@
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
     }
+    
+    p, h1 {
+		color: black;
+		justify-content: center;
+		align-items: center;
+	}
 
     body {
         display: flex;
@@ -208,6 +214,11 @@
             </li>
         </ul>
     </div>
+    <center>
+		<h3>Your public IP address:</h3>
+		<p id="gfg"></p>
+
+	</center>
     <script>
         const navigation = document.querySelector('.navigation');
         document.querySelector('.toggle').ondblclick = function () {
@@ -222,6 +233,25 @@
             $(".navigation").draggable();
         });
     </script>
+    
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	
+	<script>
+	
+	/* Add "https://api.ipify.org?format=json" statement
+			this will communicate with the ipify servers in
+			order to retrieve the IP address $.getJSON will
+			load JSON-encoded data from the server using a
+			GET HTTP request */
+				
+	$.getJSON("https://api.ipify.org?format=json", function(data) {
+		
+		// Setting text of element P with id gfg
+		$("#gfg").html(data.ip);
+	})
+	</script>
 </body>
 
 </html>
